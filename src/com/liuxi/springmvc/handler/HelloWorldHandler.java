@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloWorldHandler {
     
-    //
+    private static final String SUCCESS = "success";
+    
     @RequestMapping("/hello")
     public String hello() {
         System.out.println("first controller");
-        return "success";
+        return SUCCESS;
     }
 }
