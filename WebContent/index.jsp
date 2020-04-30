@@ -8,6 +8,13 @@
 </head>
 <body>
 
+<a href="testVariable/101">Test Variable</a>
+<br><br>
+
+<a href="springmvc/testRequestMapping">Test RequestMapping</a>
+<br><br>
+<a href="testAntPath/123/abc">Test AntPath</a>
+<br><br>
 <a href="testParams?username=tom&age=11">Test Params</a>
 <br><br>
 <form action="testMethod" method="post">
