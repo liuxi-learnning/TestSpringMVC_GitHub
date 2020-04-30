@@ -8,6 +8,26 @@
 </head>
 <body>
 
+<form action="testRest/1" method="post">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" value="test put">
+</form>
+<br><br>
+
+<form action="testRest/1" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="test delete">
+</form>
+<br><br>
+
+<form action="testRest" method="post">
+    <input type="submit" value="test post2">
+</form>
+<br><br>
+
+<a href="testRest/1">Test GET</a>
+<br><br>
+
 <a href="testVariable/101">Test Variable</a>
 <br><br>
 
