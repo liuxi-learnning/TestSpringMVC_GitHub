@@ -10,6 +10,30 @@ public class HelloWorldHandler {
     
     private static final String SUCCESS = "success";
     
+    @RequestMapping(value="/testRest/{id}", method=RequestMethod.PUT)
+    public String testPut(@PathVariable("id") Integer id) {
+        System.out.println("testRest , GET " + id );
+        return SUCCESS;
+    }
+    
+    @RequestMapping(value="/testRest/{id}", method=RequestMethod.DELETE)
+    public String testDelete(@PathVariable("id") Integer id) {
+        System.out.println("testRest , delete " + id );
+        return SUCCESS;
+    }
+    
+    @RequestMapping(value="/testRest", method=RequestMethod.POST)
+    public String testRest() {
+        System.out.println("testRest , POST " );
+        return SUCCESS;
+    }
+    
+    @RequestMapping(value="/testRest/{id}", method=RequestMethod.GET)
+    public String testRest(@PathVariable("id") Integer id) {
+        System.out.println("testRest , GET " + id );
+        return SUCCESS;
+    }
+    
     @RequestMapping(value="/testVariable/{id}")
     public String testVariable(@PathVariable("id") Integer id) {
         System.out.println("testVariable" + id + "jjj");
