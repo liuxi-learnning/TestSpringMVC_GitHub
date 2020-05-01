@@ -4,11 +4,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    @RequestMapping(value="/testRequestParam")
+    public String testRequestParam(@RequestParam(value="username") String username,
+            @RequestParam(value="age") Integer age) {
+        System.out.println("testRequestParam , username " + username  + " age " + age);
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testRest/{id}", method=RequestMethod.PUT)
     public String testPut(@PathVariable("id") Integer id) {
