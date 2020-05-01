@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<form action="testPojo" method="post">
+    user name <input type="text" name="username">
+    password <input type="password" name="password">
+    email <input type="text" name="email">
+    age <input type="text" name="age">
+    city <input type="text" name="address.city">
+    province <input type="text" name="address.province">
+    <input type="submit" value="test POJO">
+</form>
+<br><br>
+
 <a href="testRequestHeader">Test RequestHeader</a>
 <br><br>
 

@@ -8,10 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.liuxi.springmvc.entity.User;
+
 @Controller
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    @RequestMapping(value="/testPojo")
+    public String testPojo(User user) {
+        System.out.println("testPojo " + user);
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testRequestHeader")
     public String testRequestHeader(@RequestHeader(value="Accept-Language") String al) {
