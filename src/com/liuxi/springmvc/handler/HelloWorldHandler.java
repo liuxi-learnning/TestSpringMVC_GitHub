@@ -1,7 +1,9 @@
 package com.liuxi.springmvc.handler;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    @RequestMapping(value="/testRequestHeader")
+    public String testRequestHeader(@RequestHeader(value="Accept-Language") String al) {
+        System.out.println("testRequestHeader , accept language " + al);
+        return SUCCESS;
+    }
+    
+    @RequestMapping(value="/testcookieValue")
+    public String testcookieValue(@CookieValue(value="JSESSIONID") String sessionID) {
+        System.out.println("testcookieValue , sessionID " + sessionID);
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testRequestParam")
     public String testRequestParam(@RequestParam(value="username") String username,

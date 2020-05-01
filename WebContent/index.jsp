@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<a href="testRequestHeader">Test RequestHeader</a>
+<br><br>
+
+<a href="testcookieValue">Test cookieValue</a>
+<br><br>
+
 <a href="testRequestParam?username=tom">Test RequestParam</a>
 <br><br>
 
