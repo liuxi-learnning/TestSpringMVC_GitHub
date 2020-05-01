@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HelloWorldHandler {
-    
+    //only add some comment
     private static final String SUCCESS = "success";
     
     @RequestMapping(value="/testRest/{id}", method=RequestMethod.PUT)
