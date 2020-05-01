@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<a href="testRequestParam?username=tom&age=11">Test RequestParam</a>
+<a href="testRequestParam?username=tom">Test RequestParam</a>
 <br><br>
 
 <form action="testRest/1" method="post">

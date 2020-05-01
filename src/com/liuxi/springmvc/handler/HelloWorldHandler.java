@@ -13,7 +13,7 @@ public class HelloWorldHandler {
     
     @RequestMapping(value="/testRequestParam")
     public String testRequestParam(@RequestParam(value="username") String username,
-            @RequestParam(value="age") Integer age) {
+            @RequestParam(value="age", required=false, defaultValue="0") Integer age) {
         System.out.println("testRequestParam , username " + username  + " age " + age);
         return SUCCESS;
     }
