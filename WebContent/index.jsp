@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<form action="testModelAttribute" method="post">
+    <input type="hidden" name="id" value="1"><br>
+    user name <input type="text" name="username", value="bob"><br>
+    email <input type="text" name="email", value="bob@test.com"><br>
+    age <input type="text" name="age", value=11><br>
+    <input type="submit" value="test model attribute">
+</form>
+<br><br>
+
 <a href="testSessionAttribute">testSessionAttribute</a>
 <br><br>
 

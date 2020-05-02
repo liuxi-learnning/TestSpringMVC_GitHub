@@ -1,11 +1,20 @@
 package com.liuxi.springmvc.entity;
 
 public class User {
+    
+    private String id;
     private String username;
     private String password;
     private String email;
     private int age;
     private Address address;
+    
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getUsername() {
         return username;
     }
@@ -36,10 +45,11 @@ public class User {
     public void setAddress(Address address) {
         this.address = address;
     }
+    
     @Override
     public String toString() {
-        return "User [username=" + username + ", password=" + password + ", email=" + email + ", age=" + age
-                + ", address=" + address + "]";
+        return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", age="
+                + age + ", address=" + address + "]";
     }
     public User() {
         super();
@@ -47,6 +57,14 @@ public class User {
     }
     public User(String username, String password, String email, int age) {
         super();
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.age = age;
+    }
+    public User(String id, String username, String password, String email, int age) {
+        super();
+        this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;

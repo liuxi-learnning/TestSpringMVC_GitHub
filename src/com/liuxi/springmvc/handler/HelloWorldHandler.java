@@ -2,6 +2,7 @@ package com.liuxi.springmvc.handler;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,17 +20,47 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.liuxi.springmvc.entity.User;
 
-@SessionAttributes("user")
+//@SessionAttributes注解，可以通过属性名（value）将模型属性放入会话，还可以通过对象类型（types）添加到会话
+//@SessionAttributes(value= {"user"}, types= {String.class, LocalDateTime.class})
 @Controller
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
     
+    //@ModelAttribute标注的方法，springMVC会在每个目标方法执行之前被调用。
+    /**
+     *  流程
+     *  s1，执行@ModelAttribute标注的方法，从数据库获取对象，put到map中，键为user
+     *  s2，springMVC从map中获取User对象，并把表单中的请求参数赋值给User对象对应的属性
+     *  s3，将上述对象传递给目标方法的参数
+     *  注意，put到map的时候，参数名需要约定为目标参数类型首字母小写的变量
+     *  或者，目标方法也使用@ModelAttribute去修饰入参
+     * @param id
+     * @param map
+     */
+    @ModelAttribute
+    public void getUser(@RequestParam(value="id", required=false) String id, Map<String, Object> map) {
+        if(id != null) {
+            //s あ模拟从数据库取得一个user
+            User user = new User("1", "jack", "123", "jack@test.com", 14);
+            System.out.println("test get user form DB :  " + user);
+            //map.put("user", user);
+            map.put("u", user);
+        }
+    }
+    
+    @RequestMapping(value="/testModelAttribute")
+    public String testModelAttribute(@ModelAttribute("u") User user) {
+        System.out.println("testModelAttribute, modify:  " + user);
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testSessionAttribute")
     public String testSessionAttribute(Map<String, Object> map) {
         User user = new User("tom","123","tom@test.com",15);
         map.put("user", user);
+        map.put("testString", "hello");
+        map.put("testLocalDateTime", LocalDateTime.now());
         System.out.println("testSessionAttribute " );
         return SUCCESS;
     }

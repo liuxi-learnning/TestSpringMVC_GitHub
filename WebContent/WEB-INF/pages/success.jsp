@@ -16,5 +16,13 @@ names : ${requestScope.names}
 request user : ${requestScope.user}
 <br>
 session user : ${sessionScope.user}
+<br>
+request testString : ${requestScope.testString}
+<br>
+session testString : ${sessionScope.testString}
+<br>
+request testLocalDateTime : ${requestScope.testLocalDateTime}
+<br>
+session testLocalDateTime : ${sessionScope.testLocalDateTime}
 </body>
 </html>
