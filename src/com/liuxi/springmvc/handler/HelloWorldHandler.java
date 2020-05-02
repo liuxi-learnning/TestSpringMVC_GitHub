@@ -27,6 +27,12 @@ public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
     
+    @RequestMapping("/testViewAndViewResolver")
+    public String testViewAndViewResolver() {
+        System.out.println("testViewAndViewResolver");
+        return SUCCESS;
+    }
+    
     //@ModelAttribute标注的方法，springMVC会在每个目标方法执行之前被调用。
     /**
      *  流程

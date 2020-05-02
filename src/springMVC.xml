@@ -12,4 +12,10 @@
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    
+    <!--p配置国际化资源 -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"></property>  
+    </bean>
 </beans>

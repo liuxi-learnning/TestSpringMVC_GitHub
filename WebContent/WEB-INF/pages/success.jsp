@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,11 @@
 </head>
 <body>
 success!
-<br>
+<br><br>
+<fmt:message key="i18n.username"></fmt:message>
+<br><br>
+<fmt:message key="i18n.password"></fmt:message>
+<br><br>
 now is : ${requestScope.time}
 <br>
 names : ${requestScope.names}

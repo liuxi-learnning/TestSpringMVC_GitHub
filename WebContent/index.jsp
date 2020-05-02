@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<a href="testViewAndViewResolver">testViewAndViewResolver</a>
+<br><br>
+
 <form action="testModelAttribute" method="post">
     <input type="hidden" name="id" value="1"><br>
     user name <input type="text" name="username", value="bob"><br>
