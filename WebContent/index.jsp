@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<a href="testForward">testForward</a>
+<br><br>
+
+<a href="testRedirect">testRedirect</a>
+<br><br>
+
 <a href="testView">test View</a>
 <br><br>
 
