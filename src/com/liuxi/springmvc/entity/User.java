@@ -41,5 +41,16 @@ public class User {
         return "User [username=" + username + ", password=" + password + ", email=" + email + ", age=" + age
                 + ", address=" + address + "]";
     }
+    public User() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    public User(String username, String password, String email, int age) {
+        super();
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.age = age;
+    }
     
 }

@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<a href="testSessionAttribute">testSessionAttribute</a>
+<br><br>
+
 <a href="testMap">testMap</a>
 <br><br>
 

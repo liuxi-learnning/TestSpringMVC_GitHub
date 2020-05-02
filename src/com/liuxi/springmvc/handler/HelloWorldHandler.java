@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +19,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.liuxi.springmvc.entity.User;
 
+@SessionAttributes("user")
 @Controller
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    
+    @RequestMapping(value="/testSessionAttribute")
+    public String testSessionAttribute(Map<String, Object> map) {
+        User user = new User("tom","123","tom@test.com",15);
+        map.put("user", user);
+        System.out.println("testSessionAttribute " );
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testMap")
     public String testMap(Map<String, Object> map) {
