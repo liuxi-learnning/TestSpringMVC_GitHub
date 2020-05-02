@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<a href="testView">test View</a>
+<br><br>
+
 <a href="testViewAndViewResolver">testViewAndViewResolver</a>
 <br><br>
 
