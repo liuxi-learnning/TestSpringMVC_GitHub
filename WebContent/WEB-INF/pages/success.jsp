@@ -8,6 +8,9 @@
 </head>
 <body>
 success!
-now is : ${requestScope.time} }
+<br>
+now is : ${requestScope.time}
+<br>
+names : ${requestScope.names}
 </body>
 </html>

@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<a href="testMap">testMap</a>
+<br><br>
+
 <a href="testModelAndView">testModelAndView</a>
 <br><br>
 

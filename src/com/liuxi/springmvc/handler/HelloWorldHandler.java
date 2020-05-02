@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +24,12 @@ public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
     
+    @RequestMapping(value="/testMap")
+    public String testMap(Map<String, Object> map) {
+        map.put("names", Arrays.asList("tom","jerry","mike"));
+        System.out.println("testMap " );
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testModelAndView")
     public ModelAndView testModelAndView() {
