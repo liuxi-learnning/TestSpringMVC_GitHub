@@ -8,12 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.liuxi.springmvc.entity.User;
 
 @Controller
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    
+    @RequestMapping(value="/testServletAPI")
+    public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("testServletAPI " + request + ", " + response);
+        return SUCCESS;
+    }
     
     @RequestMapping(value="/testPojo")
     public String testPojo(User user) {
