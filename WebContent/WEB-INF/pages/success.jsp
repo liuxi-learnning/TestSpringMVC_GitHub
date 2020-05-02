@@ -8,5 +8,6 @@
 </head>
 <body>
 success!
+now is : ${requestScope.time} }
 </body>
 </html>

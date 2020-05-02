@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +22,15 @@ public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
     
+    
+    @RequestMapping(value="/testModelAndView")
+    public ModelAndView testModelAndView() {
+        String viewName = SUCCESS;
+        ModelAndView modelAndView = new ModelAndView(viewName);
+        modelAndView.addObject("time",  LocalDateTime.now());
+        System.out.println("testModelAndView " );
+        return modelAndView;
+    }
     
     @RequestMapping(value="/testServletAPI")
     public String testServletAPI(HttpServletRequest request, HttpServletResponse response) {
