@@ -145,7 +145,7 @@ public class HelloWorldHandler {
     @RequestMapping(value="/testRest/{id}", method=RequestMethod.DELETE)
     public String testDelete(@PathVariable("id") Integer id) {
         System.out.println("testRest , delete " + id );
-        return SUCCESS;
+        return "redirect:/views/list.jsp";
     }
     
     @RequestMapping(value="/testRest", method=RequestMethod.POST)
