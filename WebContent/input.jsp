@@ -20,7 +20,17 @@
         如果该属性值也不存在，则会发生错误。
     -->
     <form:form action="emp" method="POST" modelAttribute="employee">
+       <c:if test="${employee.id == null}">
         lastName: <form:input path="lastName"/><br>
+       </c:if>
+       <c:if test="${employee.id != null}">
+        <form:hidden path="id"/>
+        <input type="hidden" name="_method" value="PUT">
+        <%-- s对于 _method 不能使用 form:hidden 标签, 因为 modelAttribute 对应的 bean 中没有 _method 这个属性 --%>
+            <%-- 
+            <form:hidden path="_method" value="PUT"/>
+            --%>
+       </c:if>
         email: <form:input path="email"/><br>
         <%
         Map<String, String> genders = new HashMap();
