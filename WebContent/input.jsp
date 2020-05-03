@@ -11,6 +11,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+    <!--  
+        1. WHY 使用 form 标签呢 ?
+        可以更快速的开发出表单页面, 而且可以更方便的进行表单值的回显
+        2. s注意:
+        可以通过 modelAttribute 属性指定绑定的模型属性,
+        若没有指定该属性，则默认从 request 域对象中读取 command 的表单 bean
+        如果该属性值也不存在，则会发生错误。
+    -->
     <form:form action="emp" method="POST" modelAttribute="employee">
         lastName: <form:input path="lastName"/><br>
         email: <form:input path="email"/><br>
