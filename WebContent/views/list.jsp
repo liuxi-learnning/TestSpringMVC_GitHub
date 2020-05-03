@@ -38,5 +38,7 @@
     </c:if>
     
     <br><br>
+    
+    <a href="emp"> add employee</a>
 </body>
 </html>
