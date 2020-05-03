@@ -3,7 +3,6 @@ package com.liuxi.springmvc.crud.handlers;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.liuxi.springmvc.crud.dao.DepartmentDao;
 import com.liuxi.springmvc.crud.dao.EmployeeDao;
 import com.liuxi.springmvc.crud.entities.Employee;
-import com.liuxi.springmvc.entity.User;
 
 @Controller
 public class EmployeeHandler {
@@ -31,6 +29,13 @@ public class EmployeeHandler {
             Employee employee = employeeDao.get(id);
             map.put("employee", employee);
         }
+    }
+    
+    @RequestMapping("/testConversionServiceConverer")
+    public String testConverter(@RequestParam("employee") Employee employee){
+        System.out.println("save: " + employee);
+        employeeDao.save(employee);
+        return "redirect:/emps";
     }
     
     @RequestMapping(value="/emp/{id}", method=RequestMethod.PUT)

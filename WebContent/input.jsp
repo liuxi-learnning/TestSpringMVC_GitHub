@@ -11,6 +11,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+    <form action="testConversionServiceConverer" method="POST">
+        <!-- lastname-email-gender-department.id 例如: GG-gg@atguigu.com-0-105 -->
+        Employee: <input type="text" name="employee"/>
+        <input type="submit" value="Submit"/>
+    </form>
+    <br><br>
     <!--  
         1. WHY 使用 form 标签呢 ?
         可以更快速的开发出表单页面, 而且可以更方便的进行表单值的回显
