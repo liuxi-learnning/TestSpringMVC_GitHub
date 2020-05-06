@@ -64,7 +64,7 @@ public class EmployeeHandler {
     
     @RequestMapping(value="/emp", method=RequestMethod.POST)
     public String save(Employee employee) {
-        System.out.println("in employeeHandler, POST");
+        System.out.println("in employeeHandler, POST" + employee);
         employeeDao.save(employee);
         return "redirect:/emps";
     }

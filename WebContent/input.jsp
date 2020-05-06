@@ -49,6 +49,8 @@
         department: <form:select path="department.id"
             items="${departmentList}" itemLabel="departmentName" itemValue="id">
         </form:select><br>
+        birth: <form:input path="birth"/><br>
+        salary: <form:input path="salary"/><br>
         <input type="submit" value="add">
         
     </form:form>

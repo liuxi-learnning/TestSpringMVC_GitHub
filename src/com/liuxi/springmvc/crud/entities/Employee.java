@@ -19,10 +19,10 @@ public class Employee {
 	private Department department;
 	
 	//@Past
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="yyyy-MM-dd")//定义日期格式
 	private Date birth;
 	
-	@NumberFormat(pattern="#,###,###.#")
+	@NumberFormat(pattern="#,###,###.#")//定义数字格式
 	private Float salary;
 
 	public Integer getId() {
