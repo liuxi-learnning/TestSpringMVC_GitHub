@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,6 +68,12 @@ public class EmployeeHandler {
         employeeDao.save(employee);
         return "redirect:/emps";
     }
+    
+//    @InitBinder
+//    public void intBander(WebDataBinder binder) {
+//        //s让lastName不进行赋值。应用场景：用户权限往往是一个集合，单个的ID无法映射成一个集合，需要手动特殊处理
+//        binder.setDisallowedFields("lastName");
+//    }
     
     @RequestMapping(value="/emp", method=RequestMethod.GET)
     public String emp(Map<String, Object> map) {
