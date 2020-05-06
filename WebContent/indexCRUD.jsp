@@ -27,6 +27,13 @@ $(function() {
 </head>
 <body>
 
+<form action="testFileUpload" method="POST"  enctype="multipart/form-data">
+    file<input type="file" name="file"/>
+    desc<input type="text" name="desc"/>
+    <input type="submit" value="submit"/>
+</form>
+<br><br>
+
 <a href="testResponseEntity">Test ResponseEntity</a>
 <br><br>
 

@@ -45,7 +45,11 @@
     <mvc:view-controller path="/success" view-name="success"/>
     <mvc:view-controller path="/i18n" view-name="i18n"/>
     <mvc:view-controller path="/i18n2" view-name="i18n2"/>
-    
+    <!-- s配置 MultipartResolver -->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+        <property value="UTF-8" name="defaultEncoding"/>
+        <property value="1024000" name="maxUploadSize"/>
+    </bean>
     <!-- s在实际开发中通常都需配置 mvc:annotation-driven 标签 -->
     <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
     
