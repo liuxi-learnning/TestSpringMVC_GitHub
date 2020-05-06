@@ -1,9 +1,17 @@
 package com.liuxi.springmvc.crud.handlers;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -11,6 +19,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +44,30 @@ public class EmployeeHandler {
             Employee employee = employeeDao.get(id);
             map.put("employee", employee);
         }
+    }
+    
+    @RequestMapping("/testResponseEntity")
+    public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException {
+        
+        byte[] body = null;
+        InputStream in = session.getServletContext().getResourceAsStream("/input.jsp");
+        body = new byte[in.available()];
+        in.read(body);
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("content-Disposition", "attachment;filename=input.jsp");
+        HttpStatus statusCode = HttpStatus.OK;
+        ResponseEntity<byte[]> response = new ResponseEntity<>(body, headers, statusCode);
+        return response;
+    }
+    
+    
+    @ResponseBody
+    @RequestMapping("/testHttpMessageConverter")
+    public String testHttpMessageConverter(@RequestBody String body) {
+        System.out.println("test HttpMessageConverter");
+        System.out.println(body);
+        return "hello , " + LocalDateTime.now();
     }
     
     @ResponseBody

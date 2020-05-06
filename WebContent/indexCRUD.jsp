@@ -27,6 +27,16 @@ $(function() {
 </head>
 <body>
 
+<a href="testResponseEntity">Test ResponseEntity</a>
+<br><br>
+
+<form action="testHttpMessageConverter" method="POST"  enctype="multipart/form-data">
+    file<input type="file" name="file"/>
+    desc<input type="text" name="desc"/>
+    <input type="submit" value="submit"/>
+</form>
+<br><br>
+
 <a href="testJson" id="testJson">Test Json</a>
 <br><br>
 
