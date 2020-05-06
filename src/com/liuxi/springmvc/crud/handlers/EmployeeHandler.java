@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,6 +43,7 @@ public class EmployeeHandler {
     }
     
     @RequestMapping(value="/emp/{id}", method=RequestMethod.PUT)
+    //public String emp(@Valid Employee employee) {
     public String emp(Employee employee) {
         System.out.println("in employeeHandler, update a employee...");
         employeeDao.save(employee);
@@ -63,7 +66,13 @@ public class EmployeeHandler {
     }
     
     @RequestMapping(value="/emp", method=RequestMethod.POST)
-    public String save(Employee employee) {
+    public String save(Employee employee, BindingResult result) {
+        if(result.getErrorCount() > 0) {
+            System.out.println("NG!");
+            for(FieldError err : result.getFieldErrors()) {
+                System.out.println(err.getField() + "---" + err.getDefaultMessage());
+            }
+        }
         System.out.println("in employeeHandler, POST" + employee);
         employeeDao.save(employee);
         return "redirect:/emps";
