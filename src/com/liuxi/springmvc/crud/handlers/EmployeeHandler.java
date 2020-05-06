@@ -1,5 +1,6 @@
 package com.liuxi.springmvc.crud.handlers;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liuxi.springmvc.crud.dao.DepartmentDao;
 import com.liuxi.springmvc.crud.dao.EmployeeDao;
@@ -33,6 +35,13 @@ public class EmployeeHandler {
             Employee employee = employeeDao.get(id);
             map.put("employee", employee);
         }
+    }
+    
+    @ResponseBody
+    @RequestMapping("/testJson")
+    public Collection<Employee> testJson() {
+        System.out.println("test response body");
+        return employeeDao.getAll();
     }
     
     @RequestMapping("/testConversionServiceConverer")
