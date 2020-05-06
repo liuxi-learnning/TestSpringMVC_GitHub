@@ -35,6 +35,7 @@
         class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
     </bean>
     <mvc:interceptors>
+        <bean class="com.liuxi.springmvc.crud.interceptors.FirstInterceptor"></bean>
         <!-- s配置 LocaleChanceInterceptor -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
