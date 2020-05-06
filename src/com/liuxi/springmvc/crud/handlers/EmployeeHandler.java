@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,8 @@ public class EmployeeHandler {
     private EmployeeDao employeeDao;
     @Autowired
     private DepartmentDao departmentDao;
+    @Autowired
+    private ResourceBundleMessageSource messageSource;
     
     @ModelAttribute
     public void getEmployee(@RequestParam(value="id", required=false) Integer id, Map<String, Object> map) {
@@ -44,6 +48,13 @@ public class EmployeeHandler {
             Employee employee = employeeDao.get(id);
             map.put("employee", employee);
         }
+    }
+    
+    @RequestMapping("/i18n")
+    public String testI18n(Locale locale){
+        String val = messageSource.getMessage("i18n.username", null, locale);
+        System.out.println(val); 
+        return "i18n";
     }
     
     @RequestMapping("/testResponseEntity")
