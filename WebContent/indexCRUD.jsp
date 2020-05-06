@@ -27,6 +27,9 @@ $(function() {
 </head>
 <body>
 
+<a href="testExceptionHandlerExceptionResolver?i=10">testExceptionHandlerExceptionResolver</a>
+<br><br>
+
 <form action="testFileUpload" method="POST"  enctype="multipart/form-data">
     file<input type="file" name="file"/>
     desc<input type="text" name="desc"/>

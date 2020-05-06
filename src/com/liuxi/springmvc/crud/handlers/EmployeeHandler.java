@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.liuxi.springmvc.crud.dao.DepartmentDao;
 import com.liuxi.springmvc.crud.dao.EmployeeDao;
@@ -49,6 +52,33 @@ public class EmployeeHandler {
             Employee employee = employeeDao.get(id);
             map.put("employee", employee);
         }
+    }
+    
+    /**
+     * 1.@ExceptionHandler方法入参中可以闯入Exception对象，获取异常
+     * 2.s入参中不能传入map，如果需要讲错误信息带到页面，需要ModelAndView作为返回值
+     * 3.@ExceptionHandler有优先级问题，就近原则
+     * 4.s如果Handler中找不到@ExceptionHandler标记的方法处理异常，
+     * 则去@ControllerAdvice标记的类中寻找@ExceptionHandler标记的方法来处理
+     * @param i
+     * @return
+     */
+    //s如果想把错误信息带到页面，则需要返回modelandview
+//    @ExceptionHandler({ArithmeticException.class})
+//    //public String handleArithmeticException(Exception e) {
+//    public ModelAndView handleArithmeticException(Exception e) {
+//        ModelAndView mv = new ModelAndView("error");
+//        System.out.println("arithmetic exception...");
+//        System.out.println(e);
+//        mv.addObject("exception", e);
+//        //return "error";
+//        return mv;
+//    }
+    
+    @RequestMapping("/testExceptionHandlerExceptionResolver")
+    public String testExceptionHandlerExceptionResolver(@RequestParam("i") Integer i) {
+       System.out.println("result :" + 10/i);
+       return "error";
     }
     
     @RequestMapping("testFileUpload")

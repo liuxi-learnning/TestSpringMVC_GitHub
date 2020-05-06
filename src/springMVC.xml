@@ -35,12 +35,12 @@
         class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
     </bean>
     <mvc:interceptors>
-        <bean class="com.liuxi.springmvc.crud.interceptors.FirstInterceptor"></bean>
+        <!-- <bean class="com.liuxi.springmvc.crud.interceptors.FirstInterceptor"></bean>
         <mvc:interceptor>
-        <!-- s指定拦截器作用（或不作用）于某一个访问路径 -->
+        s指定拦截器作用（或不作用）于某一个访问路径
             <mvc:mapping path="/emps" />
             <bean class="com.liuxi.springmvc.crud.interceptors.SecondInterceptor"></bean>
-        </mvc:interceptor>
+        </mvc:interceptor> -->
         <!-- s配置 LocaleChanceInterceptor -->
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
     </mvc:interceptors>
