@@ -77,28 +77,35 @@ public class EmployeeHandler {
 //        return mv;
 //    }
     
+    @RequestMapping(value="/testSimpleMappingExceptionResolver")
+    public String testSimpleMappingExceptionResolver(@RequestParam("i") Integer i) {
+        String[] strs = new String[10];
+        System.out.println("testSimpleMappingExceptionResolver");
+        System.out.println(strs[i]);
+        return "success";
+    }
     
     @RequestMapping(value="/testDefaultHandlerExceptionResolver", method=RequestMethod.POST)
     public String testDefaultHandlerExceptionResolver() {
-       System.out.println("testDefaultHandlerExceptionResolver");
-       return "success";
+        System.out.println("testDefaultHandlerExceptionResolver");
+        return "success";
     }
     
     @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="do 404 test")
     //s方法上标注@ResponseStatus以后，一定会按照其指定的statuscode显示的
     @RequestMapping("/testResponseStatusExceptionResolver")
     public String testResponseStatusExceptionResolver(@RequestParam("i") Integer i) {
-       if(i==0) {
-           System.out.println("error!");
-           throw new UserNameNotMatchPasswordException();
-       }
-       return "success";
+        if(i==0) {
+            System.out.println("error!");
+            throw new UserNameNotMatchPasswordException();
+        }
+        return "success";
     }
     
     @RequestMapping("/testExceptionHandlerExceptionResolver")
     public String testExceptionHandlerExceptionResolver(@RequestParam("i") Integer i) {
-       System.out.println("result :" + 10/i);
-       return "error";
+        System.out.println("result :" + 10/i);
+        return "error";
     }
     
     @RequestMapping("testFileUpload")

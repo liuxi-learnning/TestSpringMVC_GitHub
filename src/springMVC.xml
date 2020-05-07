@@ -68,4 +68,14 @@
             </set>
         </property> 
     </bean>
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionAttribute" value="exception"></property>
+        <property name="exceptionMappings">  
+	        <props>  
+	            <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>  
+	        </props>  
+        </property> 
+    </bean>
+    
 </beans>

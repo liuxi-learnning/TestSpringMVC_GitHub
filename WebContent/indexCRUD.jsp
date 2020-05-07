@@ -26,6 +26,10 @@ $(function() {
 </script>
 </head>
 <body>
+
+<a href="testSimpleMappingExceptionResolver?i=10">SimpleMappingExceptionResolver</a>
+<br><br>
+
 <a href="testDefaultHandlerExceptionResolver">testDefaultHandlerExceptionResolver</a>
 <br><br>
 
