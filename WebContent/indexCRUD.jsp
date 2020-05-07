@@ -26,6 +26,8 @@ $(function() {
 </script>
 </head>
 <body>
+<a href="testDefaultHandlerExceptionResolver">testDefaultHandlerExceptionResolver</a>
+<br><br>
 
 <a href="testResponseStatusExceptionResolver?i=10">testResponseStatusExceptionResolver</a>
 <br><br>

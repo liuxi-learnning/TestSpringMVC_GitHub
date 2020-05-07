@@ -77,6 +77,13 @@ public class EmployeeHandler {
 //        return mv;
 //    }
     
+    
+    @RequestMapping(value="/testDefaultHandlerExceptionResolver", method=RequestMethod.POST)
+    public String testDefaultHandlerExceptionResolver() {
+       System.out.println("testDefaultHandlerExceptionResolver");
+       return "success";
+    }
+    
     @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="do 404 test")
     //s方法上标注@ResponseStatus以后，一定会按照其指定的statuscode显示的
     @RequestMapping("/testResponseStatusExceptionResolver")
