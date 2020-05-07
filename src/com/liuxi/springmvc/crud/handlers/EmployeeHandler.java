@@ -28,12 +28,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.liuxi.springmvc.crud.dao.DepartmentDao;
 import com.liuxi.springmvc.crud.dao.EmployeeDao;
 import com.liuxi.springmvc.crud.entities.Employee;
+import com.liuxi.springmvc.exceptions.UserNameNotMatchPasswordException;
 
 @Controller
 public class EmployeeHandler {
@@ -74,6 +76,17 @@ public class EmployeeHandler {
 //        //return "error";
 //        return mv;
 //    }
+    
+    @ResponseStatus(value=HttpStatus.NOT_FOUND, reason="do 404 test")
+    //s方法上标注@ResponseStatus以后，一定会按照其指定的statuscode显示的
+    @RequestMapping("/testResponseStatusExceptionResolver")
+    public String testResponseStatusExceptionResolver(@RequestParam("i") Integer i) {
+       if(i==0) {
+           System.out.println("error!");
+           throw new UserNameNotMatchPasswordException();
+       }
+       return "success";
+    }
     
     @RequestMapping("/testExceptionHandlerExceptionResolver")
     public String testExceptionHandlerExceptionResolver(@RequestParam("i") Integer i) {
