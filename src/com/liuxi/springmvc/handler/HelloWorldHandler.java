@@ -1,5 +1,6 @@
 package com.liuxi.springmvc.handler;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.liuxi.springmvc.crud.service.UserService;
 import com.liuxi.springmvc.entity.User;
 
 //@SessionAttributes注解，可以通过属性名（value）将模型属性放入会话，还可以通过对象类型（types）添加到会话
@@ -26,6 +28,13 @@ import com.liuxi.springmvc.entity.User;
 public class HelloWorldHandler {
     //only add some comment
     private static final String SUCCESS = "success";
+    
+    @Autowired
+    private UserService userService;
+    
+    public HelloWorldHandler() {
+        System.out.println("HelloWorldHandler constructor...");
+    }
     
     @RequestMapping("/testForward")
     public String testForward() {
